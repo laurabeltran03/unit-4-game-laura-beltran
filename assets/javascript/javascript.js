@@ -1,95 +1,96 @@
 $( document ).ready(function(){
+  
+ // Selects a random number to be shown at the start of the game, between 19-120
+  
   var Random=Math.floor(Math.random()*101+19)
-  // Selects a random number to be shown at the start of the game
-  // Number should be should be between 19 - 120
-  //
+  
   $('#randomNumber').text(Random);
-  // Appending random number to the randomNumber id in the html doc
-  //
-  var num1= Math.floor(Math.random()*11+1)
-  var num2= Math.floor(Math.random()*11+1)
-  var num3= Math.floor(Math.random()*11+1)
-  var num4= Math.floor(Math.random()*11+1)
-  // Setting up random numbers for each jewel
-  // Random number has to be between 1 - 12
-  // 
-  var userTotal= 0; 
+
+  //Select a random number to each animal between 1 - 12
+  var number1= Math.floor(Math.random()*11+1)
+  var number2= Math.floor(Math.random()*11+1)
+  var number3= Math.floor(Math.random()*11+1)
+  var number4= Math.floor(Math.random()*11+1)
+ 
+
+  var Totalscore= 0; 
   var wins= 0;
   var losses = 0;
-  //  Decaring variables for tallies
+ 
 $('#numberWins').text(wins);
 $('#numberLosses').text(losses);
+
 //resets the game
 function reset(){
       Random=Math.floor(Math.random()*101+19);
       console.log(Random)
       $('#randomNumber').text(Random);
-      num1= Math.floor(Math.random()*11+1);
-      num2= Math.floor(Math.random()*11+1);
-      num3= Math.floor(Math.random()*11+1);
-      num4= Math.floor(Math.random()*11+1);
-      userTotal= 0;
-      $('#finalTotal').text(userTotal);
+      number1= Math.floor(Math.random()*11+1);
+      number2= Math.floor(Math.random()*11+1);
+      number3= Math.floor(Math.random()*11+1);
+      number4= Math.floor(Math.random()*11+1);
+      Totalscore= 0;
+      $('#finalTotal').text(Totalscore);
       } 
-//adds the wins to the userTotal
-function yay(){
-alert("You won!");
+//Addes wins to total
+function winWin(){
+alert("Yeah, you won, time to be happy!");
   wins++; 
   $('#numberWins').text(wins);
   reset();
 }
-//addes the losses to the userTotal
+//Addes the lost games to total
 function loser(){
-alert ("You lose!");
+alert ("You Lost, don't cry you have another opportunity!");
   losses++;
   $('#numberLosses').text(losses);
   reset()
 }
-//sets up click for jewels
-  $('#one').on ('click', function(){
-    userTotal = userTotal + num1;
-    console.log("New userTotal= " + userTotal);
-    $('#finalTotal').text(userTotal); 
-          //sets win/lose conditions
-        if (userTotal == Random){
-          yay();
+//Click animals, points and conditions to win or to lost
+  $('#babyBlue').on ('click', function(){
+    Totalscore = Totalscore + number1;
+    console.log("New Totalscore= " + Totalscore);
+    $('#finalTotal').text(Totalscore); 
+          
+        if (Totalscore == Random){
+          winWin();
         }
-        else if ( userTotal > Random){
+        else if ( Totalscore > Random){
           loser();
         }   
   })  
-  $('#two').on ('click', function(){
-    userTotal = userTotal + num2;
-    console.log("New userTotal= " + userTotal);
-    $('#finalTotal').text(userTotal); 
-        if (userTotal == Random){
-          yay();
+  $('#babyGreen').on ('click', function(){
+    Totalscore = Totalscore + number2;
+    console.log("New Totalscore= " + Totalscore);
+    $('#finalTotal').text(Totalscore); 
+        if (Totalscore == Random){
+          winWin();
         }
-        else if ( userTotal > Random){
+        else if ( Totalscore > Random){
           loser();
         } 
   })  
-  $('#three').on ('click', function(){
-    userTotal = userTotal + num3;
-    console.log("New userTotal= " + userTotal);
-    $('#finalTotal').text(userTotal);
-//sets win/lose conditions
-          if (userTotal == Random){
-          yay();
+  $('#babyRed').on ('click', function(){
+    Totalscore = Totalscore + number3;
+    console.log("New Totalscore= " + Totalscore);
+    $('#finalTotal').text(Totalscore);
+
+          if (Totalscore == Random){
+          winWin();
         }
-        else if ( userTotal > Random){
+        else if ( Totalscore > Random){
           loser();
         } 
   })  
-  $('#four').on ('click', function(){
-    userTotal = userTotal + num4;
-    console.log("New userTotal= " + userTotal);
-    $('#finalTotal').text(userTotal); 
+  $('#babyYellow').on ('click', function(){
+    Totalscore = Totalscore + number4;
+    console.log("New Totalscore= " + Totalscore);
+    $('#finalTotal').text(Totalscore); 
       
-          if (userTotal == Random){
-          yay();
+          if (Totalscore == Random){
+          winWin();
         }
-        else if ( userTotal > Random){
+        else if ( Totalscore > Random){
           loser();
         }
   });   
